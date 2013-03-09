@@ -46,3 +46,6 @@ Returns < 0 if str1 is less than str2; > 0 if str1 is greater than str2,
 and 0 if they are equal.
             -- PHP Documentation
 NOT MENTIONED: strcmp also returns 0 on error.
+%
+json_decode takes a flag to choose one of two embedding schemes. One silently
+turns empty objects into empty lists, the other replaces "" with "_empty_".
