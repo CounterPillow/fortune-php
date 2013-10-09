@@ -49,3 +49,18 @@ NOT MENTIONED: strcmp also returns 0 on error.
 %
 json_decode takes a flag to choose one of two embedding schemes. One silently
 turns empty objects into empty lists, the other replaces "" with "_empty_".
+%
+Infinite recursion crashes. There's no fix for that.
+            -- jani@php.net, marking a PHP parser segfault as "not a bug"
+%
+php > echo +"one";
+0
+%
+php > $db=dba_open("/tmp/test.db", "c", "db4"); dba_nextkey($db);
+Segmentation fault
+%
+php > print 07;
+7
+php > print 08;
+0
+(PHP dealing with invalid octals. Both Perl and Python would give you errors in these cases.)
